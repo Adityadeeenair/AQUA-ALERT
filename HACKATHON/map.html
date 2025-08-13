@@ -8,6 +8,13 @@
 <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><path d='M64 8C64 8 20 54 20 80a44 44 0 0 0 88 0C108 54 64 8 64 8z' fill='%230077B6'/></svg>" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
+<style>
+  /* Prevent underline for button-like links */
+  .btn {
+    text-decoration: none;
+  }
+</style>
 </head>
 <body>
 <header class="header">
@@ -17,7 +24,7 @@
     <div class="navlinks">
       <a href="dashboard.html">Dashboard</a>
       <a href="map.html" class="active">Water Map</a>
-      <a href="report.html" >Report Issue</a>
+      <a href="report.html">Report Issue</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="faqs.html">FAQs</a>
@@ -44,7 +51,9 @@
     <div>© <span id="year"></span> Aqua Alert</div>
     <div>Contact: <a href="mailto:support@aquaalert.in">support@aquaalert.in</a></div>
   </div>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear()
+  </script>
 </footer>
 
 <script src="assets/js/main.js"></script>
