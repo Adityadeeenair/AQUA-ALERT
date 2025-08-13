@@ -5,16 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Aqua Alert – About</title>
 <link rel="stylesheet" href="assets/css/style.css" />
-<link rel="icon" href="/Aquaa-main\HACKATHON\Aqua_favicon.png"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="%2300B4D8"/><stop offset="1" stop-color="%230077B6"/></linearGradient></defs><path d="M64 8C64 8 20 54 20 80a44 44 0 0 0 88 0C108 54 64 8 64 8z" fill="url(%23g)"/><circle cx="76" cy="56" r="6" fill="%23fff" opacity=".85"/></svg>' />
-<body>
-<header class="header">
+<link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="%234ade80"/><stop offset="1" stop-color="%233b82f6"/></linearGradient></defs><path d="M64 8C64 8 20 54 20 80a44 44 0 0 0 88 0C108 54 64 8 64 8z" fill="url(%23g)"/><circle cx="76" cy="56" r="6" fill="%23fff" opacity=".85"/></svg>' />
+</head>
+<body data-page="about">
+<header class="header" role="banner">
   <nav class="nav" aria-label="Primary">
     <a class="brand" href="index.html"><span class="drop"></span> Aqua Alert</a>
-    <button class="burger" aria-label="Menu">☰</button>
+    <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
     <div class="navlinks">
       <a href="dashboard.html">Dashboard</a>
       <a href="map.html">Water Map</a>
-      <a href="report.html">Report Issue</a>
+      <a href="report.html" class="cta">Report Issue</a>
       <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
       <a href="faqs.html">FAQs</a>
@@ -22,25 +23,46 @@
   </nav>
 </header>
 
-<main class="section">
-  <div class="container grid-2">
-    <section class="panel">
-      <h2>Our Mission</h2>
-      <p>Aqua Alert empowers citizens to protect India’s water by making it simple to report issues, visualize hotspots, and track improvements. We believe transparent, community-driven data can accelerate real‑world clean‑up and better policy.</p>
-    </section>
-    <section class="panel">
-      <h2>Website Features</h2>
-      <ul>
-        <li>Interactive Water Map with reported locations</li>
-        <li>Dashboard with live stats and charts</li>
-        <li>Report form with map pinpointing</li>
-        <li>Accessible, responsive UI with strong contrast</li>
-      </ul>
-    </section>
-  </div>
+<main>
+  <section class="section text-center" style="padding-top: 4rem; padding-bottom: 4rem;">
+    <div class="container" style="max-width: 800px;">
+      <h1>Our Mission</h1>
+      <p style="font-size: 1.125rem; color: var(--muted);">Aqua Alert empowers citizens to protect India’s water by making it simple to report issues, visualize hotspots, and track improvements. We believe transparent, community-driven data can accelerate real-world clean-up and better policy.</p>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--light); padding-top: 4rem; padding-bottom: 5rem;">
+    <div class="container" style="max-width: 900px;">
+      <h2 class="text-center" style="margin-bottom: 2.5rem;">Our Core Features</h2>
+      <div class="feature-steps">
+        <div class="feature-step">
+          <div class="feature-step-icon">🗺️</div>
+          <div class="feature-step-text">
+            <h3>Interactive Water Map</h3>
+            <p>Visualize all reported locations in real-time on a nationwide map, helping to identify and track pollution hotspots and safe water sources.</p>
+          </div>
+        </div>
+        <div class="feature-step">
+          <div class="feature-step-icon">📊</div>
+          <div class="feature-step-text">
+            <h3>Live Dashboard</h3>
+            <p>Track key statistics, issue types, and reporting trends with dynamic charts, providing valuable insights for communities and authorities.</p>
+          </div>
+        </div>
+        <div class="feature-step">
+          <div class="feature-step-icon">➕</div>
+          <div class="feature-step-text">
+            <h3>Simple Reporting</h3>
+            <p>Submit a new issue in seconds with our easy-to-use, map-based reporting form that works seamlessly on any device.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="inner">
     <div>© <span id="year"></span> Aqua Alert</div>
     <div>Contact: <a href="mailto:support@aquaalert.in">support@aquaalert.in</a></div>
