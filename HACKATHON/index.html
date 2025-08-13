@@ -7,39 +7,10 @@
 <meta name="description" content="Monitor and report water quality across India.">
 <link rel="stylesheet" href="assets/css/style.css" />
 <link rel="preconnect" href="https://unpkg.com" />
-<link rel="icon" href="/Aquaa-main\HACKATHON\Aqua_favicon.png"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="%2300B4D8"/><stop offset="1" stop-color="%230077B6"/></linearGradient></defs><path d="M64 8C64 8 20 54 20 80a44 44 0 0 0 88 0C108 54 64 8 64 8z" fill="url(%23g)"/><circle cx="76" cy="56" r="6" fill="%23fff" opacity=".85"/></svg>' />
-
-<!-- Spline embed script -->
+<link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="%234ade80"/><stop offset="1" stop-color="%233b82f6"/></linearGradient></defs><path d="M64 8C64 8 20 54 20 80a44 44 0 0 0 88 0C108 54 64 8 64 8z" fill="url(%23g)"/><circle cx="76" cy="56" r="6" fill="%23fff" opacity=".85"/></svg>' />
 <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.45/build/spline-viewer.js"></script>
-
-<style>
-/* Make spline viewer take the space of the image */
-.hero-media spline-viewer {
-  width: 140%;
-  height: 140%;
-  min-height: 350px;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-/* Updated CTA to match section buttons */
-.cta {
-  background: #fff;
- 
-  padding: 10px 14px;
- 
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
-  
-}
-.cta:hover {
-  border-color: var(--aqua);
-  color: var(--blue);
-}
-</style>
 </head>
-<body>
+<body data-page="home">
 <header class="header" role="banner">
   <nav class="nav" aria-label="Primary">
     <a class="brand" href="index.html"><span class="drop"></span> Aqua Alert</a>
@@ -47,7 +18,7 @@
     <div class="navlinks">
       <a href="dashboard.html">Dashboard</a>
       <a href="map.html">Water Map</a>
-      <a href="report.html" >Report Issue</a>
+      <a href="report.html">Report Issue</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="faqs.html">FAQs</a>
@@ -60,16 +31,15 @@
     <div class="hero-inner">
       <div>
         <h1 id="hero-title">Safeguarding India's Water, One Report at a Time</h1>
-        <p>Join citizens and communities across India to monitor, report, and improve water quality. Your report powers data-driven action.</p>
+        <p>Join citizens and communities across India to monitor, report, and improve water quality. Your report powers data‑driven action.</p>
         <div class="quick-links" role="navigation" aria-label="Quick links">
           <a href="dashboard.html">View Dashboard</a>
           <a href="map.html">Open Water Map</a>
-          <a class="cta" href="report.html">Report an Issue</a>
+          <a href="report.html">Report an Issue</a>
         </div>
       </div>
       <div class="hero-media" aria-hidden="true">
-        <!-- Spline embed -->
-        <spline-viewer url="https://prod.spline.design/5MkjUgiIeQnrlHmy/scene.splinecode"></spline-viewer>
+        <spline-viewer url="https://prod.spline.design/6B5Szqhfw8TgQC4G/scene.splinecode"></spline-viewer>
       </div>
     </div>
   </section>
@@ -99,18 +69,31 @@
   </section>
 
   <section class="section">
-    <div class="container grid-2">
+    <div class="container">
       <div class="panel">
-        <h2>How Aqua Alert Helps</h2>
-        <p>We crowdsource water quality issues, visualize hotspots on an interactive map, and surface actionable insights on the dashboard for communities and authorities.</p>
-      </div>
-      <div class="panel">
-        <h2>Get Started</h2>
-        <ol>
-          <li>Open the <a href="map.html">Water Map</a> to see reported sites.</li>
-          <li><a href="report.html">Report an issue</a> by pinpointing the location.</li>
-          <li>Track progress on the <a href="dashboard.html">Dashboard</a>.</li>
-        </ol>
+        <div class="grid-2">
+          <div>
+            <h2>How Aqua Alert Helps</h2>
+            <p>We crowdsource water quality issues, visualize hotspots on an interactive map, and surface actionable insights on the dashboard for communities and authorities.</p>
+          </div>
+          <div>
+            <h2>Get Started in 3 Steps</h2>
+            <div class="steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">Explore the <a href="map.html">Water Map</a> to see reported sites.</div>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text"><a href="report.html">Report an issue</a> by pinpointing the location.</div>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">Track progress on the <a href="dashboard.html">Dashboard</a>.</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -124,7 +107,29 @@
   <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </footer>
 
+<button class="chat-toggle" id="chat-toggle" aria-label="Open chat">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+</button>
+
+<div class="chat-window" id="chat-window" role="dialog" hidden>
+  <div class="chat-header">
+    <h3>Aqua Assistant</h3>
+    <button class="chat-close" id="chat-close" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-input-area">
+    <div class="chat-options" id="chat-options">
+      <button class="chat-option">How to report?</button>
+      <button class="chat-option">View the map</button>
+      <button class="chat-option">What is this site?</button>
+    </div>
+    <form class="chat-form" id="chat-form">
+      <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+
 <script src="assets/js/main.js"></script>
-<script>document.body.dataset.page='dashboard';</script>
 </body>
 </html>
