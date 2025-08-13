@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aqua Alert – Report an Issue</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><path d='M64 8C64 8 20 54 20 80a44 44 0 0 0 88 0C108 54 64 8 64 8z' fill='%2300B4D8'/></svg>" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html"><span class="drop"></span> Aqua Alert</a>
+    <button class="burger" aria-label="Menu">☰</button>
+    <div class="navlinks">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="map.html">Water Map</a>
+      <a href="report.html" class="cta active">Report Issue</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faqs.html">FAQs</a>
+    </div>
+  </nav>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Pinpoint Location</h2>
+        <div id="report-map" role="application" aria-label="Click to set report location"></div>
+        <div class="map-actions">
+          <button id="btn-locate" class="btn" type="button">Locate Me</button>
+          <span class="helper">Tip: click on the map to set the exact spot.</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Report Details</h2>
+        <form id="report-form" class="form" novalidate>
+          <div class="full">
+            <label for="location">Location (text)</label>
+            <input id="location" name="location" placeholder="e.g., Near Yamuna Bank, Delhi" autocomplete="address-line1" />
+            <div class="helper">Latitude/Longitude auto-filled from map.</div>
+          </div>
+          <div>
+            <label for="lat">Latitude</label>
+            <input id="lat" name="lat" inputmode="decimal" placeholder="Click map" readonly />
+          </div>
+          <div>
+            <label for="lng">Longitude</label>
+            <input id="lng" name="lng" inputmode="decimal" placeholder="Click map" readonly />
+          </div>
+          <div>
+            <label for="waterType">Water Body Type</label>
+            <select id="waterType" name="waterType" required>
+              <option value="">Select</option>
+              <option>River</option><option>Lake</option><option>Pond</option>
+              <option>Canal</option><option>Groundwater</option><option>Tap / Supply</option>
+            </select>
+          </div>
+          <div>
+            <label for="issueType">Issue Type</label>
+            <select id="issueType" name="issueType" required>
+              <option value="">Select</option>
+              <option>Contamination</option>
+              <option>Industrial Discharge</option>
+              <option>Sewage / E. coli</option>
+              <option>Trash / Plastic</option>
+              <option>Odor / Color</option>
+              <option>Safe Source</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Describe the issue, severity, visible signs, etc." required></textarea>
+          </div>
+          <div>
+            <label for="name">Your Name</label>
+            <input id="name" name="name" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="contact">Contact Info</label>
+            <input id="contact" name="contact" placeholder="Email or phone" autocomplete="email" required />
+          </div>
+          <div class="full actions">
+            <button class="btn primary" type="submit">Submit Report</button>
+            <a class="btn" href="dashboard.html">Back to Dashboard</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="inner">
+    <div>© <span id="year"></span> Aqua Alert</div>
+    <div>Contact: <a href="mailto:support@aquaalert.in">support@aquaalert.in</a></div>
+  </div>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aqua Alert – Contact</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="%234ade80"/><stop offset="1" stop-color="%233b82f6"/></linearGradient></defs><path d="M64 8C64 8 20 54 20 80a44 44 0 0 0 88 0C108 54 64 8 64 8z" fill="url(%23g)"/><circle cx="76" cy="56" r="6" fill="%23fff" opacity=".85"/></svg>' />
+</head>
+<body data-page="contact">
+<header class="header" role="banner">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html"><span class="drop"></span> Aqua Alert</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="navlinks">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="map.html">Water Map</a>
+      <a href="report.html">Report Issue</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="faqs.html">FAQs</a>
+    </div>
+  </nav>
+</header>
+
+<main class="section">
+  <div class="container" style="max-width: 800px;">
+    <div class="panel">
+      <h2>Contact Us</h2>
+      <p class="helper" style="margin-bottom: 1rem;">Have questions or feedback? We’d love to hear from you.</p>
+      
+      <form id="contact-form" class="form" novalidate>
+        <div class="full">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="full">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="full">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required />
+        </div>
+        <div class="full">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div class="full actions">
+          <button class="btn primary" type="submit">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="inner">
+    <div>© <span id="year"></span> Aqua Alert</div>
+    <div>Contact: <a href="mailto:support@aquaalert.in">support@aquaalert.in</a></div>
+  </div>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

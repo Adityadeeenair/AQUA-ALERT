@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aqua Alert – Safeguarding India's Water</title>
+<meta name="description" content="Monitor and report water quality across India.">
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="preconnect" href="https://unpkg.com" />
+<link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="%2300B4D8"/><stop offset="1" stop-color="%230077B6"/></linearGradient></defs><path d="M64 8C64 8 20 54 20 80a44 44 0 0 0 88 0C108 54 64 8 64 8z" fill="url(%23g)"/><circle cx="76" cy="56" r="6" fill="%23fff" opacity=".85"/></svg>' />
+
+<!-- Spline embed script -->
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.45/build/spline-viewer.js"></script>
+
+<style>
+/* Make spline viewer take the space of the image */
+.hero-media spline-viewer {
+  width: 140%;
+  height: 140%;
+  min-height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Updated CTA to match section buttons */
+.cta {
+  background: #fff;
+ 
+  padding: 10px 14px;
+ 
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  
+}
+.cta:hover {
+  border-color: var(--aqua);
+  color: var(--blue);
+}
+</style>
+</head>
+<body>
+<header class="header" role="banner">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html"><span class="drop"></span> Aqua Alert</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="navlinks">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="map.html">Water Map</a>
+      <a href="report.html" >Report Issue</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faqs.html">FAQs</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <div>
+        <h1 id="hero-title">Safeguarding India's Water, One Report at a Time</h1>
+        <p>Join citizens and communities across India to monitor, report, and improve water quality. Your report powers data-driven action.</p>
+        <div class="quick-links" role="navigation" aria-label="Quick links">
+          <a href="dashboard.html">View Dashboard</a>
+          <a href="map.html">Open Water Map</a>
+          <a class="cta" href="report.html">Report an Issue</a>
+        </div>
+      </div>
+      <div class="hero-media" aria-hidden="true">
+        <!-- Spline embed -->
+        <spline-viewer url="https://prod.spline.design/5MkjUgiIeQnrlHmy/scene.splinecode"></spline-viewer>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cards" aria-label="Key statistics">
+        <article class="card">
+          <div class="spark">Live</div>
+          <h3>Overview of Water Quality (reports)</h3>
+          <div class="value" data-stat="overview">0</div>
+        </article>
+        <article class="card">
+          <h3>Safe Water Sources</h3>
+          <div class="value" data-stat="safe">0</div>
+        </article>
+        <article class="card">
+          <h3>Active Alerts</h3>
+          <div class="value" data-stat="alerts">0</div>
+        </article>
+        <article class="card">
+          <h3>Quality Improvement %</h3>
+          <div class="value" data-stat="improve">0</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="panel">
+        <h2>How Aqua Alert Helps</h2>
+        <p>We crowdsource water quality issues, visualize hotspots on an interactive map, and surface actionable insights on the dashboard for communities and authorities.</p>
+      </div>
+      <div class="panel">
+        <h2>Get Started</h2>
+        <ol>
+          <li>Open the <a href="map.html">Water Map</a> to see reported sites.</li>
+          <li><a href="report.html">Report an issue</a> by pinpointing the location.</li>
+          <li>Track progress on the <a href="dashboard.html">Dashboard</a>.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="inner">
+    <div>© <span id="year"></span> Aqua Alert · Safeguarding India’s water</div>
+    <div>Contact: <a href="mailto:support@aquaalert.in">support@aquaalert.in</a></div>
+  </div>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>document.body.dataset.page='dashboard';</script>
+</body>
+</html>
