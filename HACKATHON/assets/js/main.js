@@ -31,7 +31,7 @@ function initDashboard(){
   const reports = getReports();
   const safe = reports.filter(r => (r.issueType||'').toLowerCase().includes('safe')).length;
   const alerts = reports.filter(r => (r.issueType||'').toLowerCase().includes('contamination') || (r.issueType||'').toLowerCase().includes('alert')).length;
-  const improvement = Math.min(97, 30 + Math.floor(reports.length * 0.7)); // demo metric
+  const improvement = Math.min(97, 30 + Math.floor(reports.length * 0.7));
 
   const elOverview = document.querySelector('[data-stat="overview"]');
   const elSafe = document.querySelector('[data-stat="safe"]');
@@ -42,7 +42,6 @@ function initDashboard(){
   if(elAlerts) animateCount(elAlerts, alerts);
   if(elImprove) animateCount(elImprove, improvement);
 
-  // Chart.js (if present)
   const ctx1 = document.getElementById('issuesChart');
   if(ctx1 && window.Chart){
     const byType = reports.reduce((acc,r)=>{ acc[r.issueType||'Other']=(acc[r.issueType||'Other']||0)+1; return acc },{});
@@ -57,7 +56,6 @@ function initDashboard(){
   }
   const ctx2 = document.getElementById('trendChart');
   if(ctx2 && window.Chart){
-    // simple monthly trend from timestamps
     const byMonth = {};
     reports.forEach(r=>{
       const d = new Date(r.createdAt||Date.now());
@@ -72,7 +70,6 @@ function initDashboard(){
     });
   }
 
-  // List recent reports if container present
   const list = document.getElementById('recent-list');
   if(list){
     list.innerHTML = reports.slice(-6).reverse().map(r=>`
@@ -84,6 +81,17 @@ function initDashboard(){
   }
 }
 
+/* ======== MARKER STYLE ======== */
+function getMarkerRadius(zoom) {
+  return Math.max(4, 6 + (zoom - 5) * 0.8);
+}
+const BASE_STYLE = {
+  color: '#ff0000',
+  weight: 2,
+  fillColor: '#ff0000',
+  fillOpacity: 0.5
+};
+
 /* ======== MAP (Water Map page) ======== */
 function initMap(){
   const mapEl = document.getElementById('map');
@@ -93,26 +101,28 @@ function initMap(){
     maxZoom: 19, attribution: '&copy; OpenStreetMap'
   }).addTo(map);
 
-  const redIcon = new L.Icon({
-    iconUrl:'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-    shadowUrl:'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-    iconSize:[25,41], iconAnchor:[12,41], popupAnchor:[1,-34], shadowSize:[41,41],
-    className:'red-tint'
-  });
-  const style = document.createElement('style');
-  style.textContent = `.red-tint{ filter:hue-rotate(-150deg) saturate(2) }`;
-  document.head.appendChild(style);
-
   const reports = getReports();
+  const markers = [];
   reports.forEach(r=>{
     if(r.lat && r.lng){
-      L.marker([r.lat, r.lng], { icon:redIcon })
-        .addTo(map)
-        .bindPopup(`<strong>${r.issueType||'Issue'}</strong><br>${r.waterType||''}<br><small>${r.locationText||''}</small>`);
+      const marker = L.circleMarker(
+        [r.lat, r.lng],
+        { ...BASE_STYLE, radius: getMarkerRadius(map.getZoom()) }
+      )
+      .addTo(map)
+      .bindPopup(`<strong>${r.issueType||'Issue'}</strong><br>${r.waterType||''}<br><small>${r.locationText||''}</small>`)
+      .on('click', () => {
+        map.setView([r.lat, r.lng], 14, { animate: true });
+      });
+      markers.push(marker);
     }
   });
 
-  // Fullscreen toggle via CSS
+  map.on('zoomend', () => {
+    const zoom = map.getZoom();
+    markers.forEach(m => m.setStyle({ radius: getMarkerRadius(zoom) }));
+  });
+
   const wrap = document.querySelector('.map-wrap');
   const btn = document.getElementById('btn-fullscreen');
   if(btn && wrap){
@@ -137,16 +147,30 @@ function initReport(){
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
       maxZoom:19, attribution:'&copy; OpenStreetMap'
     }).addTo(map);
+
     let marker;
     function place(latlng){
       if(marker){ marker.setLatLng(latlng); }
-      else { marker = L.marker(latlng).addTo(map); }
+      else {
+        marker = L.circleMarker(
+          latlng,
+          { ...BASE_STYLE, radius: getMarkerRadius(map.getZoom()) }
+        )
+        .addTo(map)
+        .on('click', () => {
+          map.setView(latlng, 14, { animate: true });
+        });
+      }
       latField.value = latlng.lat.toFixed(6);
       lngField.value = latlng.lng.toFixed(6);
     }
+
+    map.on('zoomend', () => {
+      if(marker) marker.setStyle({ radius: getMarkerRadius(map.getZoom()) });
+    });
+
     map.on('click', e => place(e.latlng));
 
-    // Geolocate button
     const geoBtn = document.getElementById('btn-locate');
     if(geoBtn && navigator.geolocation){
       geoBtn.addEventListener('click', ()=>{
@@ -161,7 +185,6 @@ function initReport(){
   if(form){
     form.addEventListener('submit',(e)=>{
       e.preventDefault();
-      // Basic validation
       const requiredIds = ['waterType','issueType','description','name','contact'];
       let ok = true;
       requiredIds.forEach(id=>{
