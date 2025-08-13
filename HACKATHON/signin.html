@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aqua Alert – Sign In</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><path d='M64 8C64 8 20 54 20 80a44 44 0 0 0 88 0C108 54 64 8 64 8z' fill='%2300B4D8'/></svg>" />
+<style>
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  .auth-wrap {
+    max-width: 420px;
+    margin: 32px auto;
+    background: #1e1e1e;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.6);
+  }
+  .auth-wrap h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #00B4D8; /* Aqua accent */
+  }
+  .auth-wrap p.helper {
+    color: #b0b0b0;
+    margin-bottom: 16px;
+  }
+  .auth-wrap form {
+    display: grid;
+    gap: 12px;
+  }
+  .auth-wrap input {
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background: #2a2a2a;
+    color: #fff;
+  }
+  .auth-wrap input::placeholder {
+    color: #888;
+  }
+  .auth-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+  .btn.primary {
+    background-color: #00B4D8;
+    color: #fff;
+  }
+  .btn.primary:hover {
+    background-color: #0090b3;
+  }
+  .linkbtn {
+    background: none;
+    border: 0;
+    color: #00B4D8;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+  }
+</style>
+</head>
+<body data-page="signin">
+<header class="header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html"><span class="drop"></span> Aqua Alert</a>
+    <button class="burger" aria-label="Menu">☰</button>
+    <div class="navlinks">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="map.html">Water Map</a>
+      <a href="report.html">Report Issue</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faqs.html">FAQs</a>
+    </div>
+  </nav>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div class="auth-wrap">
+      <h1>Sign In</h1>
+      <p class="helper">Use the demo account or one you added earlier.</p>
+      <form id="signin-form" autocomplete="on">
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <div class="auth-actions">
+          <label><input type="checkbox" id="remember" /> Remember me</label>
+          <button type="submit" class="btn primary">Sign In</button>
+        </div>
+      </form>
+      <p class="helper" style="margin-top:10px">
+        Demo account: <code>aditya@gmail.com</code> / <code>aditya123</code>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="inner">
+    <div>© <span id="year"></span> Aqua Alert</div>
+    <div>Contact: <a href="mailto:support@aquaalert.in">support@aquaalert.in</a></div>
+  </div>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
