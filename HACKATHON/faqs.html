@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Aqua Alert – FAQs</title>
 <link rel="stylesheet" href="assets/css/style.css" />
-<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><path d='M64 8C64 8 20 54 20 80a44 44 0 0 0 88 0C108 54 64 8 64 8z' fill='%2300B4D8'/></svg>" />
+<link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="%234ade80"/><stop offset="1" stop-color="%233b82f6"/></linearGradient></defs><path d="M64 8C64 8 20 54 20 80a44 44 0 0 0 88 0C108 54 64 8 64 8z" fill="url(%23g)"/><circle cx="76" cy="56" r="6" fill="%23fff" opacity=".85"/></svg>' />
 </head>
-<body>
-<header class="header">
+<body data-page="faqs">
+<header class="header" role="banner">
   <nav class="nav" aria-label="Primary">
     <a class="brand" href="index.html"><span class="drop"></span> Aqua Alert</a>
-    <button class="burger" aria-label="Menu">☰</button>
+    <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
     <div class="navlinks">
       <a href="dashboard.html">Dashboard</a>
       <a href="map.html">Water Map</a>
@@ -25,28 +25,43 @@
 
 <main class="section">
   <div class="container">
-    <div class="accordion" role="region" aria-label="Frequently Asked Questions">
-      <details>
-        <summary>How are locations added to the map?</summary>
-        <div class="content">When you submit a report, we store the coordinates and show a red marker on the Water Map.</div>
-      </details>
-      <details>
-        <summary>Do I need an account to report?</summary>
-        <div class="content">No. You only provide basic contact information so we can follow up if needed.</div>
-      </details>
-      <details>
-        <summary>What counts as a “Safe Water Source”?</summary>
-        <div class="content">Reports tagged as “Safe Source” are counted under Safe Water Sources on the dashboard.</div>
-      </details>
-      <details>
-        <summary>Is my data shared?</summary>
-        <div class="content">Only aggregated, anonymized statistics are shown publicly on the dashboard.</div>
-      </details>
+    <div class="panel">
+      <h2 style="text-align: center; margin-bottom: 1rem;">Frequently Asked Questions</h2>
+      <div class="accordion" role="region" aria-label="Frequently Asked Questions">
+        <details>
+          <summary>How are locations added to the map?</summary>
+          <div class="content">When you submit a report with a location pinpointed on the map, we store the coordinates and show a marker on the main Water Map for everyone to see.</div>
+        </details>
+        <details>
+          <summary>Do I need an account to report an issue?</summary>
+          <div class="content">No, an account is not required. We aim for a barrier-free reporting process. You only provide basic contact information so we can follow up if needed.</div>
+        </details>
+        <details>
+          <summary>What happens after I submit a report?</summary>
+          <div class="content">Your report is immediately added to our database and becomes visible on the public dashboard and map. This helps raise community awareness and provides data for local authorities and environmental groups to take action.</div>
+        </details>
+        <details>
+          <summary>How is the data verified?</summary>
+          <div class="content">Our platform is based on crowdsourced citizen reports. While we don't verify each report individually, patterns of multiple reports in the same area help confirm persistent issues. We encourage users to provide accurate and honest information.</div>
+        </details>
+        <details>
+          <summary>Can I edit or delete my report after submitting?</summary>
+          <div class="content">Currently, you cannot edit or delete a report after it has been submitted. This is to maintain the integrity of the dataset. Please double-check your information before submitting.</div>
+        </details>
+        <details>
+          <summary>What counts as a “Safe Water Source”?</summary>
+          <div class="content">Reports tagged with the “Safe Source” issue type are counted under this category on the dashboard. This is typically used to identify community-verified clean water sources like wells or public taps.</div>
+        </details>
+        <details>
+          <summary>Is my personal data shared?</summary>
+          <div class="content">No. We only show aggregated, anonymized statistics publicly on the dashboard. Your name and contact information are kept private and are only used if we need to contact you for clarification on your report.</div>
+        </details>
+      </div>
     </div>
   </div>
 </main>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="inner">
     <div>© <span id="year"></span> Aqua Alert</div>
     <div>Contact: <a href="mailto:support@aquaalert.in">support@aquaalert.in</a></div>
